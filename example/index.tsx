@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom'
 import { atom, Provider, useAtom } from 'jotai'
 import { focus, RWAtom, useAtomArrayFamily } from '../src/index'
 import { useUpdateAtom } from 'jotai/utils'
+import { JotaiDevtools } from '@c0d3t3k/jotai-devtools'
 
 const TodosAtom = atom([
   { task: 'Eat some food', checked: false },
@@ -14,8 +15,8 @@ const TodoList = ({ todos }: { todos: RWAtom<Todos> }) => {
   const changeTodoList = useUpdateAtom(todos)
   return (
     <ul>
-      {atoms.map(([atom, onRemove]) => (
-        <Todo todo={atom} onRemove={onRemove} />
+      {atoms.map(([atom, onRemove], index) => (
+        <Todo key={index} todo={atom} onRemove={onRemove} />
       ))}
       <button
         onClick={() =>
@@ -71,6 +72,7 @@ const Todo = ({
 const App = () => {
   return (
     <Provider>
+      <JotaiDevtools name={`Todos`} atom={TodosAtom} />
       <TodoList todos={TodosAtom} />
     </Provider>
   )
