@@ -60,7 +60,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@c0d3t3k/jotai-devtools": "git+ssh://git@bitbucket.org:commandperception/jotai-devtools.git",
+    "@c0d3t3k/jotai-devtools": "git+https://github.com/c0d3t3k/jotai-devtools.git",
     "@testing-library/react": "^11.0.4",
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "jotai": "^0.10.1",
